@@ -1,6 +1,9 @@
 package server
 
-import "net"
+import (
+	"net"
+	"log"
+)
 
 type Server struct {
 	Address string
@@ -16,7 +19,7 @@ func NewServer(address string) *Server {
 func (s *Server) Start() error {
 	var err error
 	s.Listener, err = net.Listen("tcp", s.Address)
-	if err != nill {
+	if err != nil {
 		log.Printf("Error accept: %v", err)
 		return err
 	}
